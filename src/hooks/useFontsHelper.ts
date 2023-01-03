@@ -1,10 +1,15 @@
 import { useCallback, useEffect, useState } from 'react';
 import {
-  Nunito_400Regular,
-  Nunito_500Medium,
-  Nunito_600SemiBold,
-  Nunito_700Bold,
-} from '@expo-google-fonts/nunito';
+  Montserrat_100Thin,
+  Montserrat_200ExtraLight,
+  Montserrat_300Light,
+  Montserrat_400Regular,
+  Montserrat_500Medium,
+  Montserrat_600SemiBold,
+  Montserrat_700Bold,
+  Montserrat_800ExtraBold,
+  Montserrat_900Black,
+} from '@expo-google-fonts/montserrat';
 
 import * as SplashScreen from 'expo-splash-screen';
 import * as Font from 'expo-font';
@@ -19,10 +24,15 @@ export const useFontsHelper = () => {
         await SplashScreen.preventAutoHideAsync();
         // Pre-load fonts, make any API calls you need to do here
         await Font.loadAsync({
-          Nunito_400Regular,
-          Nunito_500Medium,
-          Nunito_600SemiBold,
-          Nunito_700Bold,
+          Montserrat_100Thin,
+          Montserrat_200ExtraLight,
+          Montserrat_300Light,
+          Montserrat_400Regular,
+          Montserrat_500Medium,
+          Montserrat_600SemiBold,
+          Montserrat_700Bold,
+          Montserrat_800ExtraBold,
+          Montserrat_900Black,
         });
       } catch (e) {
         console.warn(e);
