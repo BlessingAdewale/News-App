@@ -1,5 +1,5 @@
-const onboarding = require('../assets/images/onboarding.png') as number;
+// const onboarding = require('../assets/images/onboarding.png') as number;
 
-export default {
-  onboarding,
-};
+// export default {
+//   onboarding,
+// };

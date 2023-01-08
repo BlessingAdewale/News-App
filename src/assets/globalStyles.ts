@@ -38,10 +38,23 @@ export const globalStyles = StyleSheet.create({
     fontWeight: '400',
     fontSize: layout.fontPixel(16),
   },
-  item: {
-    backgroundColor: colors.primaryColorLight,
-    borderRadius: layout.fontPixel(6),
-    height: layout.heightPixel(40),
-    width: layout.heightPixel(40),
+  ImageItem: {
+    borderRadius: layout.fontPixel(5),
+    height: layout.heightPixel(15),
+    width: layout.heightPixel(15),
+  },
+
+  ImageItemOutline: {
+    backgroundColor: colors.primaryWhite,
+    borderColor: colors.secondaryBlue,
+    borderRadius: layout.fontPixel(5),
+    height: layout.heightPixel(18),
+    width: layout.heightPixel(18),
+  },
+
+  newsItem: {
+    borderRadius: layout.fontPixel(5),
+    height: layout.heightPixel(25),
+    width: layout.heightPixel(15),
   },
 });

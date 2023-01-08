@@ -6,8 +6,7 @@ import { RootStackNavigator } from './RootStackNavigator';
 export const NavigationContainer = () => {
   return (
     <BaseNavigationContainer>
-     <RootStackNavigator />
+      <RootStackNavigator />
     </BaseNavigationContainer>
   );
 };
-
