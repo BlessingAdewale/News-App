@@ -12,10 +12,10 @@ import { layout } from '@utils';
 export const HomeHeader = () =>{
   return (
     <View style={[globalStyles.rowBetween, styles.container]}>
-      <TouchableOpacity activeOpacity={0.7}><FontAwesome name="align-left" size={20} /></TouchableOpacity>
+      <TouchableOpacity activeOpacity={0.7}><FontAwesome name="align-left" size={20} color={colors.tertiaryGreyColor1} /></TouchableOpacity>
       <View style={[globalStyles.rowBetween]}>
-        <TouchableOpacity><Ionicons name="ios-search" size={24} color="black" /></TouchableOpacity>
-        <TouchableOpacity style={[styles.bookmark]}><MaterialIcons name="bookmark-border" size={24} color="black" /></TouchableOpacity>
+        <TouchableOpacity><Ionicons name="ios-search" size={24} color={colors.tertiaryGreyColor1} /></TouchableOpacity>
+        <TouchableOpacity style={[styles.bookmark]}><MaterialIcons name="bookmark-border" size={24} color={colors.tertiaryGreyColor1} /></TouchableOpacity>
         </View>
      </View>
   );

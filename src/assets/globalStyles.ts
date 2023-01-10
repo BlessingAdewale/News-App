@@ -39,22 +39,23 @@ export const globalStyles = StyleSheet.create({
     fontSize: layout.fontPixel(16),
   },
   ImageItem: {
-    borderRadius: layout.fontPixel(5),
-    height: layout.heightPixel(15),
-    width: layout.heightPixel(15),
+    borderRadius: layout.fontPixel(20),
+    height: layout.heightPixel(75),
+    width: layout.heightPixel(75),
   },
 
   ImageItemOutline: {
     backgroundColor: colors.primaryWhite,
     borderColor: colors.secondaryBlue,
-    borderRadius: layout.fontPixel(5),
-    height: layout.heightPixel(18),
-    width: layout.heightPixel(18),
+    borderWidth: layout.heightPixel(3),
+    borderRadius: layout.fontPixel(20),
+    height: layout.heightPixel(85),
+    width: layout.heightPixel(85),
   },
 
   newsItem: {
     borderRadius: layout.fontPixel(5),
-    height: layout.heightPixel(25),
-    width: layout.heightPixel(15),
+    height: layout.heightPixel(150),
+    width: layout.heightPixel(80),
   },
 });

@@ -20,8 +20,8 @@ export function Home() {
       >
        
         <HomeHeader />
-        {/* <NewsStories />
-        <CurrentLocation /> */}
+        <NewsStories />
+        {/* <CurrentLocation /> */}
       </ScrollView>
     </SafeAreaView>
   );
