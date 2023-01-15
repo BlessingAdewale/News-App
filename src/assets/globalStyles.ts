@@ -3,7 +3,7 @@ import { layout } from '@utils';
 import { colors } from '@constants';
 
 export const globalStyles = StyleSheet.create({
-  wrapper: { flex: 1, backgroundColor: '#fff' },
+  wrapper: { flex: 1, backgroundColor: '#fbfbfb' },
   container: {
     paddingHorizontal: layout.pixelSizeHorizontal(15),
     flexGrow: 1,
@@ -38,24 +38,29 @@ export const globalStyles = StyleSheet.create({
     fontWeight: '400',
     fontSize: layout.fontPixel(16),
   },
-  ImageItem: {
-    borderRadius: layout.fontPixel(20),
-    height: layout.heightPixel(75),
-    width: layout.heightPixel(75),
+
+  deepWhite: {
+    backgroundColor: '#ffffff'
   },
 
-  ImageItemOutline: {
-    backgroundColor: colors.primaryWhite,
-    borderColor: colors.secondaryBlue,
-    borderWidth: layout.heightPixel(3),
+  Item: {
     borderRadius: layout.fontPixel(20),
-    height: layout.heightPixel(85),
-    width: layout.heightPixel(85),
+    height: layout.heightPixel(75),
+    width: layout.widthPixel(75),
+  },
+
+  ItemOutline: {
+    backgroundColor: colors.primaryWhite,
+    borderColor: colors.tertiaryBlue,
+    borderWidth: layout.heightPixel(3),
+    borderRadius: layout.fontPixel(25),
+    height: layout.heightPixel(90),
+    width: layout.widthPixel(90),
   },
 
   newsItem: {
     borderRadius: layout.fontPixel(5),
     height: layout.heightPixel(150),
-    width: layout.heightPixel(80),
+    width: layout.widthPixel(80),
   },
 });

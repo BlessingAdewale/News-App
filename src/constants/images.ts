@@ -1,5 +1,5 @@
-// const onboarding = require('../assets/images/onboarding.png') as number;
+const london = require('../assets/images/london.png') as number;
 
-// export default {
-//   onboarding,
-// };
+export default {
+  london,
+};

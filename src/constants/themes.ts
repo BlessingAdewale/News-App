@@ -7,6 +7,7 @@ export default {
   secondaryBlue: '#6ca3fc',
   secondaryBlack: '#000000',
   secondaryGreyColor: '#c4bfbf',
+  tertiaryBlue: '#c4dbff',
   tertiaryWhite: '#f5f9ff',
   tertiaryGreyColor1: '#464646',
   tertiaryGreyColor2: '#e7e7e8',
