@@ -4,6 +4,7 @@ import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { colors } from '@constants';
 import { layout } from '@utils';
+import { ColorSpace } from 'react-native-reanimated';
 
 type NewsCardProps = {
   title: string;
@@ -49,60 +50,60 @@ export const NewsCard = ({ title, posted, views, category, image }: NewsCardProp
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     marginTop: layout.pixelSizeVertical(25),
-    backgroundColor: colors.primaryWhite,
-    borderRadius: layout.fontPixel(20),
+    backgroundColor: '#fbfbfb',
+    borderRadius: layout.fontPixel(15),
     shadowColor: colors.primaryBlack,
     shadowOpacity: 0.06,
     shadowRadius: 20,
     shadowOffset: {
-      width: 12,
-      height: 9,
+      width: 20,
+      height: 30,
     },
-    elevation: 10,
-    height: layout.heightPixel(130),
+    height: layout.heightPixel(120),
+
   },
   contentContainer: {
+    flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginTop: layout.pixelSizeVertical(20),
-    marginLeft: layout.pixelSizeHorizontal(15),
+    marginVertical: layout.pixelSizeVertical(20),
+    marginHorizontal: layout.pixelSizeHorizontal(15),
   },
 
   image: {
     borderRadius: layout.fontPixel(20),
-    width: layout.widthPixel(70),
-    height: layout.heightPixel(90),
-    resizeMode: 'cover'
+    width: layout.widthPixel(85),
+    height: layout.heightPixel(100),
+    resizeMode: 'cover',
   },
   wrap: {
     flexShrink: 1,
     marginLeft: layout.pixelSizeHorizontal(20),
-    textAlign: 'left',
+    width: '75%',
+    height: layout.heightPixel(90),
   },
   category: {
     fontFamily: 'Montserrat_500Medium',
-    marginBottom: layout.pixelSizeHorizontal(5),
+    marginBottom: layout.pixelSizeHorizontal(7),
   },
 
   title: {
-    flexWrap: 'wrap',
     numberOfLines: 2,
     fontFamily: 'Montserrat_600SemiBold',
-    fontSize: layout.fontPixel(18),
-    marginBottom: layout.pixelSizeHorizontal(5),
+    fontSize: layout.fontPixel(17),
+    marginBottom: layout.pixelSizeHorizontal(10),
   },
   wrap2: {
     flexDirection: 'row',
     alignItems: 'center',
- 
-    
   },
   duration: {
     flexDirection: 'row',
 
-    marginRight: layout.pixelSizeHorizontal(30)
+    marginRight: layout.pixelSizeHorizontal(30),
   },
 
   clockIcon: {
@@ -113,12 +114,14 @@ const styles = StyleSheet.create({
     fontFamily: 'Montserrat_500Medium',
     color: colors.primaryGreyColor,
   },
+
+  viewers: {
+    flexDirection: 'row',
+  },
+
   eyeIcon: {
     paddingRight: layout.pixelSizeHorizontal(13),
     color: colors.primaryGreyColor,
-  },
-  viewers: {
-    flexDirection: 'row',
   },
   numberOfViews: {
     fontFamily: 'Montserrat_500Medium',

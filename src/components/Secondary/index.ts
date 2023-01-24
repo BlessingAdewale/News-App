@@ -5,3 +5,5 @@ export * from './NewsCategory';
 export * from './Politics';
 export * from './WorldNews';
 export * from './CurrentNews';
+export * from './BottomSheet';
+export * from './NewsCarousel';

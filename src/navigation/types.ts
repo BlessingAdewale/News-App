@@ -1,11 +1,11 @@
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RouteProp } from '@react-navigation/native';
 
-
-export interface IStatusItem {
+export interface IStatus {
   id: string;
   uri: string;
   category: string;
+  news: string;
 }
 
 export interface INews {
@@ -16,6 +16,7 @@ export interface INews {
   posted: string;
   viewers: string;
   category: string;
+  news: string;
 }
 
 export type RootStackParamList = {

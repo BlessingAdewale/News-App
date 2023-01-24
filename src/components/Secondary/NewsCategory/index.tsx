@@ -1,13 +1,6 @@
 import React from 'react';
 import { View, StyleSheet, StyleProp, TextStyle, ViewStyle } from 'react-native';
-import {
-  NavigationState,
-  Route,
-  SceneRendererProps,
-  TabBar,
-  TabBarIndicatorProps,
-  TabBarItemProps,
-} from 'react-native-tab-view';
+import { NavigationState, Route, SceneRendererProps, TabBar } from 'react-native-tab-view';
 
 //Routes
 import { Politics } from '../Politics';
@@ -71,43 +64,52 @@ export const NewsCategory = () => {
   ) => (
     <TabBar
       {...props}
-      indicatorStyle={{ borderWidth: 2, borderColor: colors.primaryBlue, borderRadius: 3 }}
-      indicatorContainerStyle={{}}
+      indicatorStyle={{
+        borderWidth: 3,
+        borderColor: colors.primaryBlue,
+        borderRadius: layout.fontPixel(12),
+      }}
+      indicatorContainerStyle={{ maxWidth: layout.widthPixel(240) }}
       labelStyle={{
-       
-        textAlign: 'left',
         textTransform: 'capitalize',
         fontFamily: 'Montserrat_700Bold',
-        fontSize: layout.fontPixel(20),
+        fontSize: layout.fontPixel(19),
         color: colors.primaryBlack,
+        width: layout.widthPixel(170),
+        paddingLeft: layout.pixelSizeHorizontal(20),
       }}
-      style={{ backgroundColor: '#fbfbfb' }}
+      tabStyle={styles.tabStyle}
+      gap={26}
+      style={{ backgroundColor: '#fbfbfb', paddingBottom: layout.pixelSizeVertical(5) }}
       inactiveColor={colors.primaryGreyColor}
     />
   );
 
   return (
     <TabView
+      initialLayout={{ width: layout.width, height: 0 }}
       navigationState={{ index, routes }}
       renderScene={renderScene}
       onIndexChange={setIndex}
-      initialLayout={{ width: layout.width }}
       renderTabBar={renderTabBar}
       style={styles.container}
       pagerStyle={styles.pager}
+      sceneContainerStyle={{}}
     />
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: layout.pixelSizeVertical(25),
+    marginTop: layout.pixelSizeVertical(1),
     backgroundColor: '#fbfbfb',
   },
 
   pager: {
-    marginTop: layout.pixelSizeVertical(15),
+    marginTop: layout.pixelSizeVertical(10),
   },
+
+  tabStyle: {},
 
   firstRoute: {
     flex: 1,

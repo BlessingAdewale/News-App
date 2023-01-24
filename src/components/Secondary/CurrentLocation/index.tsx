@@ -17,7 +17,7 @@ export const CurrentLocation = () => {
         <LinearGradient
           start={{ x: 1, y: 1 }}
           end={{ x: 0, y: 0 }}
-          colors={['#e6efff', '#fcfcfc', '#ffffff']}
+          colors={['#f7faff', '#fcfcfc', '#ffffff']}
           style={styles.linearGradient}
         >
           <View style={globalStyles.rowAround}>
@@ -34,20 +34,22 @@ export const CurrentLocation = () => {
 };
 const styles = StyleSheet.create({
   container: {
-    marginTop: layout.pixelSizeVertical(35),
+    marginTop: layout.pixelSizeVertical(20),
   },
   imageBackground: {
-    borderRadius: layout.pixelSizeVertical(35),
-    height: layout.heightPixel(130),
+    borderRadius: layout.pixelSizeVertical(15),
+    height: layout.heightPixel(140),
     overflow: 'hidden',
   },
   image: {
-    height: layout.heightPixel(100),
-    width: layout.widthPixel(100),
+    height: layout.heightPixel(120),
+    width: layout.widthPixel(120),
+    resizeMode: 'cover',
   },
 
   textContainer: {
     marginTop: layout.pixelSizeVertical(15),
+    marginRight: layout.pixelSizeHorizontal(25)
   },
 
   locationWelcomeMessage: {
@@ -62,5 +64,6 @@ const styles = StyleSheet.create({
   },
   linearGradient: {
     flex: 1,
+    borderRadius: layout.fontPixel(2)
   },
 });
