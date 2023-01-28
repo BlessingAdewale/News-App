@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, SafeAreaView, ScrollView } from 'react-native';
+import { View, SafeAreaView, ScrollView, StatusBar } from 'react-native';
 
 import { globalStyles } from '@globalStyles';
 import { styles } from './styles';

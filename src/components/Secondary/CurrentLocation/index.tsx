@@ -13,7 +13,7 @@ export const CurrentLocation = () => {
 
   return (
     <View style={[styles.container]}>
-      <ImageBackground source={images.london} style={styles.imageBackground} resizeMode="cover">
+      <ImageBackground source={images.london} style={[styles.imageBackground]} resizeMode="cover">
         <LinearGradient
           start={{ x: 1, y: 1 }}
           end={{ x: 0, y: 0 }}
@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
 
   locationAddress: {
     fontFamily: 'Montserrat_800ExtraBold',
-    fontSize: layout.fontPixel(30),
+    fontSize: layout.fontPixel(27),
     marginTop: layout.pixelSizeVertical(10),
   },
   linearGradient: {

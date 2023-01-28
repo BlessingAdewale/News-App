@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, StyleSheet } from 'react-native';
 
-import { BottomSheet } from '@components';
+import { BottomSheet, NewsCarousel } from '@components';
 import { StatusBar } from 'expo-status-bar';
 
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
@@ -14,12 +14,9 @@ export function News() {
   const [fashionData, setFashionData] = useState([]);
 
   return (
-    <GestureHandlerRootView style={{ flex: 1 }}>
-      <View style={styles.container}>
-        <StatusBar style="light" />
-      </View>
-      <BottomSheet />
-    </GestureHandlerRootView>
+    <View style={{}}>
+      <NewsCarousel />
+    </View>
   );
 }
 

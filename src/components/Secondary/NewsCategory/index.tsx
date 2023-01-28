@@ -11,6 +11,8 @@ import { TabView, SceneMap } from 'react-native-tab-view';
 import { layout } from '@utils';
 import { colors } from '@constants';
 
+import { props} from 'navigation/types';
+
 export const NewsCategory = () => {
   const FirstRoute = () => (
     <View style={styles.firstRoute}>

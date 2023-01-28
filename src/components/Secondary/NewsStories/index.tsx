@@ -34,18 +34,30 @@ export const NewsStories = () => {
       category: 'Science',
       uri: 'https://images.unsplash.com/photo-1673297001522-e5b8dd135422?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
       news: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+      views: '732 views',
+      title: 'Stargazer captures night sky from Sheffield garden',
+      posted: '30 min ago',
+      author: 'Miss Smith R',
     },
     {
       id: '2',
       category: 'Art',
       uri: 'https://images.unsplash.com/photo-1583912268183-a34d41fe464a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
       news: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+      views: '732 views',
+      title: 'Stargazer captures night sky from Sheffield garden',
+      posted: '30 min ago',
+      author: 'Miss Smith R',
     },
     {
       id: '3',
       category: 'Auto',
       uri: 'https://scontent-los2-1.xx.fbcdn.net/v/t1.6435-9/81349905_10156679160781120_9070810254425456640_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=973b4a&_nc_ohc=p0rlGXECX5QAX8gpAXO&_nc_ht=scontent-los2-1.xx&oh=00_AfByqHdNZPOPc3rv2RA2wiIq8CzC8hy0N98w5KST4TIuNg&oe=63DC142F',
       news: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+      views: '732 views',
+      title: 'Stargazer captures night sky from Sheffield garden',
+      posted: '30 min ago',
+      author: 'Miss Smith R',
     },
 
     {
@@ -53,6 +65,10 @@ export const NewsStories = () => {
       category: 'Space',
       uri: 'https://triasrnd.com/system/images/245/big/pld_miura_flight.jpg?1542109083',
       news: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+      views: '732 views',
+      title: 'Stargazer captures night sky from Sheffield garden',
+      posted: '30 min ago',
+      author: 'Miss Smith R',
     },
 
     {
@@ -60,6 +76,10 @@ export const NewsStories = () => {
       category: 'Fashion',
       uri: 'https://images.unsplash.com/photo-1673337615896-a849cef919e2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=737&q=80',
       news: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+      views: '732 views',
+      title: 'Stargazer captures night sky from Sheffield garden',
+      posted: '30 min ago',
+      author: 'Miss Smith R',
     },
 
     {
@@ -67,6 +87,10 @@ export const NewsStories = () => {
       category: 'Education',
       uri: 'https://images.unsplash.com/photo-1554871037-99938249e220?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=60&raw_url=true&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8c3VtbWVyJTIwc2Vhc29ufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800',
       news: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+      views: '732 views',
+      title: 'Stargazer captures night sky from Sheffield garden',
+      posted: '30 min ago',
+      author: 'Miss Smith R',
     },
   ];
 

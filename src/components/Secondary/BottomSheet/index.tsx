@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
-import { StyleSheet, View, Dimensions } from 'react-native';
+import React, { useCallback, useEffect } from 'react';
+import { StyleSheet, View, Dimensions, Image, Text } from 'react-native';
 
-import { colors } from '@constants';
 import { layout } from '@utils';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { GestureDetector, Gesture } from 'react-native-gesture-handler';
 import Animated, {
   Extrapolate,
@@ -12,11 +12,18 @@ import Animated, {
   withSpring,
 } from 'react-native-reanimated';
 
+import { BottomSheetProps } from 'navigation/types';
+
 const { height: SCREEN_HEIGHT } = Dimensions.get('window');
 
-export const BottomSheet = () => {
-  const MAX_TRANSLATE_Y = -SCREEN_HEIGHT + 50;
+export const BottomSheet = ({ author, duration, viewers, article, image }: BottomSheetProps) => {
   const translateY = useSharedValue(0);
+  const scrollTo = useCallback((destination: number) => {
+    'worklet';
+    translateY.value = withSpring(destination, { damping: 50 });
+  }, []);
+
+  const MAX_TRANSLATE_Y = -SCREEN_HEIGHT + 50;
   const context = useSharedValue({ y: 0 });
   const panGesture = Gesture.Pan()
     .onStart(() => {
@@ -28,14 +35,14 @@ export const BottomSheet = () => {
     })
     .onEnd(() => {
       if (translateY.value > -SCREEN_HEIGHT / 2) {
-        translateY.value = withSpring(0, { damping: 50 });
+        scrollTo(0);
       } else if (translateY.value < -SCREEN_HEIGHT / 1.5) {
-        translateY.value = withSpring(MAX_TRANSLATE_Y, { damping: 50 });
+        scrollTo(MAX_TRANSLATE_Y);
       }
     });
 
   useEffect(() => {
-    translateY.value = withSpring(-SCREEN_HEIGHT / 2, { damping: 100 });
+    scrollTo(-SCREEN_HEIGHT / 2);
   }, []);
 
   const rBottomSheetStyle = useAnimatedStyle(() => {
@@ -54,7 +61,42 @@ export const BottomSheet = () => {
 
   return (
     <GestureDetector gesture={panGesture}>
-      <Animated.View style={[styles.BottomSheetContainer, rBottomSheetStyle]} />
+      <Animated.View style={[styles.BottomSheetContainer, rBottomSheetStyle]}>
+        {/* Header */}
+        <View style={styles.author}>
+          <Image source={{ uri: image }} style={styles.authorImage} resizeMode="cover" />
+          <Text style={styles.authorName}>{author}</Text>
+        </View>
+        <View style={styles.duration}>
+          <MaterialCommunityIcons
+            name="clock-time-three-outline"
+            size={15}
+            color="black"
+            style={styles.clockIcon}
+          />
+          <Text style={styles.durationText}>{duration}</Text>
+        </View>
+
+        <View style={styles.viewers}>
+          <MaterialCommunityIcons
+            name="eye-outline"
+            size={15}
+            color="black"
+            style={styles.eyeIcon}
+          />
+          <Text style={styles.views}>{viewers}</Text>
+        </View>
+        {/* Text */}
+        <View>
+          {/* Text Heading */}
+          <View style={styles.textHeading}>
+            <Text style={styles.aboutText}>About</Text>
+            <Text style={styles.readMoreText}>Read More</Text>
+          </View>
+          <Text style={styles.articleText}>{article}</Text>
+          <Image source={{ uri: image }} style={styles.articleImage} />
+        </View>
+      </Animated.View>
     </GestureDetector>
   );
 };
@@ -68,4 +110,20 @@ const styles = StyleSheet.create({
     top: SCREEN_HEIGHT,
     borderRadius: layout.fontPixel(25),
   },
+
+  author: {},
+
+  authorImage: {},
+  authorName: {},
+  duration: {},
+  clockIcon: {},
+  durationText: {},
+  viewers: {},
+  eyeIcon: {},
+  views: {},
+  textHeading: {},
+  aboutText: {},
+  readMoreText: {},
+  articleText: {},
+  articleImage: {},
 });
