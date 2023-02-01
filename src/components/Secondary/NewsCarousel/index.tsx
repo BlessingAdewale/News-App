@@ -118,7 +118,6 @@ export const NewsCarousel = () => {
         scrollAnimationDuration={1000}
         onSnapToItem={(index) => console.log('current index:', index)}
         renderItem={({ item }: { item: ItemData }) => (
-          
           <SafeAreaView
             style={{
               flex: 1,
@@ -133,8 +132,6 @@ export const NewsCarousel = () => {
               style={[StyleSheet.absoluteFill, { width }]}
               resizeMode="cover"
             />
-            
-            
 
             <View style={styles.heading}>
               <Text style={{ fontSize: layout.fontPixel(30), color: colors.primaryWhite }}>
@@ -185,7 +182,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-   
   },
   below: {
     marginBottom: layout.pixelSizeVertical(25),
@@ -229,4 +225,3 @@ const styles = StyleSheet.create({
 
   bottomLinearGradient: {},
 });
-``;

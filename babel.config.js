@@ -24,6 +24,8 @@ module.exports = function (api) {
             '@constants': './src/constants/index.ts',
             '@hooks': './src/hooks/index.ts',
             '@globalStyles': './src/assets/globalStyles.ts',
+            '@redux': './src/redux/index.ts',
+            '@auth': './src/auth/index.ts',
             '@screens': './src/screens/index.ts',
             '@utils': './src/utils/index.ts',
           },

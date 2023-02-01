@@ -13,7 +13,7 @@ export const CurrentLocation = () => {
 
   return (
     <View style={[styles.container]}>
-      <ImageBackground source={images.london} style={[styles.imageBackground]} resizeMode="cover">
+      <ImageBackground source={images.london} style={[styles.imageBackground]} resizeMode="cover"  >
         <LinearGradient
           start={{ x: 1, y: 1 }}
           end={{ x: 0, y: 0 }}
@@ -21,7 +21,7 @@ export const CurrentLocation = () => {
           style={styles.linearGradient}
         >
           <View style={globalStyles.rowAround}>
-            <Image source={image} style={styles.image} resizeMode="contain" />
+            <Image source={image} style={styles.image} resizeMode="contain"  />
             <View style={styles.textContainer}>
               <Text style={styles.locationWelcomeMessage}>Your current location</Text>
               <Text style={styles.locationAddress}>London</Text>
@@ -40,11 +40,14 @@ const styles = StyleSheet.create({
     borderRadius: layout.pixelSizeVertical(15),
     height: layout.heightPixel(140),
     overflow: 'hidden',
+    
   },
   image: {
     height: layout.heightPixel(120),
     width: layout.widthPixel(120),
     resizeMode: 'cover',
+    
+
   },
 
   textContainer: {

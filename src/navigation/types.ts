@@ -30,15 +30,20 @@ export type BottomSheetProps = {
   author: string;
   duration: string;
   article: string;
-  image:string;
+  image: string;
   authorImage: string;
   viewers: string;
-  
 };
 
 export type BottomSheetRefProps = {
   scrollTo: (destination: number) => void;
   inActive: () => boolean;
+};
+
+export type AuthStackParamList = {
+  OnBoarding: undefined;
+  Login: undefined;
+  SignUp: undefined;
 };
 
 export type RootStackParamList = {
@@ -52,6 +57,9 @@ export type MainBottomTabParamList = {
   Profile: undefined;
 };
 
+export type LoginScreenNavigationProp = StackNavigationProp<AuthStackParamList, 'Login'>;
+export type SignUpScreenNavigationProp = StackNavigationProp<AuthStackParamList, 'SignUp'>;
+export type OnBoardingScreenNavigationProp = StackNavigationProp<AuthStackParamList, 'OnBoarding'>;
 export type HomeTabScreenNavigationProp = StackNavigationProp<RootStackParamList, 'HomeTab'>;
 export type NewsScreenNavigationProp = StackNavigationProp<RootStackParamList, 'News'>;
 export type NewsScreenRouteProp = RouteProp<RootStackParamList, 'News'>;
