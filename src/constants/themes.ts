@@ -4,6 +4,7 @@ export default {
   primaryLightBlack: '#353535',
   primaryWhite: '#ffffff',
   primaryGreyColor: '#999191',
+  deepBlue: '#0006b1',
   secondaryBlue: '#6ca3fc',
   secondaryBlack: '#000000',
   secondaryGreyColor: '#c4bfbf',

@@ -3,7 +3,7 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { useNavigation } from '@react-navigation/native';
 
-import { Login, SignUp } from '@auth';
+import { ForgotPassword, Login, SignUp } from '@auth';
 import { Onboarding } from '@screens';
 
 import { AuthStackParamList } from './types';
@@ -22,6 +22,7 @@ export function AuthStackNavigator() {
       <AuthStack.Screen name="OnBoarding" component={Onboarding} />
       <AuthStack.Screen name="Login" component={Login} />
       <AuthStack.Screen name="SignUp" component={SignUp} />
+      <AuthStack.Screen name="ForgotPassword" component={ForgotPassword} />
     </AuthStack.Navigator>
   );
 }

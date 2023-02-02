@@ -8,7 +8,12 @@ export const useOnBoardingHelper = () => {
     navigation.navigate('Login');
   };
 
+  const navigateSignUp = () => {
+    navigation.navigate('SignUp');
+  };
+
   return {
     navigateLogin,
+    navigateSignUp,
   };
 };

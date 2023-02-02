@@ -44,6 +44,7 @@ export type AuthStackParamList = {
   OnBoarding: undefined;
   Login: undefined;
   SignUp: undefined;
+  ForgotPassword: undefined;
 };
 
 export type RootStackParamList = {
@@ -57,6 +58,10 @@ export type MainBottomTabParamList = {
   Profile: undefined;
 };
 
+export type ForgotPasswordScreenNavigationProp = StackNavigationProp<
+  AuthStackParamList,
+  'ForgotPassword'
+>;
 export type LoginScreenNavigationProp = StackNavigationProp<AuthStackParamList, 'Login'>;
 export type SignUpScreenNavigationProp = StackNavigationProp<AuthStackParamList, 'SignUp'>;
 export type OnBoardingScreenNavigationProp = StackNavigationProp<AuthStackParamList, 'OnBoarding'>;

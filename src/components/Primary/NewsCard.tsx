@@ -71,7 +71,6 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     marginVertical: layout.pixelSizeVertical(20),
-    marginHorizontal: layout.pixelSizeHorizontal(15),
     padding: layout.fontPixel(5)
   },
 

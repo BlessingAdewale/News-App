@@ -1,34 +1,33 @@
+import React from 'react';
 import { layout } from '@utils';
 import { LinearGradient } from 'expo-linear-gradient';
-import React from 'react';
-import { Text, TouchableOpacity } from 'react-native';
-import { color } from 'react-native-reanimated';
 
-export type colorsProp = {
-  length: number;
-  [index: string]: number | string;
-};
+import { Text, TouchableOpacity } from 'react-native';
+import { colors } from '@constants';
 
 export type styleProps = {
   paddingVertical: number;
   borderRadius: number;
+  marginTop: number;
+  marginBottom: number;
+  backgroundColor: string;
 };
 
 export type ButtonProp = {
   buttonText: string;
-  colors: string[];
+  Colors: string[];
   buttonContainerStyle: styleProps;
   onPress: () => void;
 };
 
-export const Button = ({ buttonText, buttonContainerStyle, colors, onPress }: ButtonProp) => {
-  if (colors.length > 0) {
+export const Button = ({ buttonText, buttonContainerStyle, Colors, onPress }: ButtonProp) => {
+  if (Colors.length > 0) {
     return (
       <TouchableOpacity onPress={onPress}>
         <LinearGradient
           start={{ x: 0, y: 0 }}
           end={{ x: 1, y: 0 }}
-          colors={colors}
+          colors={Colors}
           style={{
             ...buttonContainerStyle,
           }}
@@ -36,8 +35,9 @@ export const Button = ({ buttonText, buttonContainerStyle, colors, onPress }: Bu
           <Text
             style={{
               textAlign: 'center',
-              color: '#fff',
+              color: colors.primaryWhite,
               fontSize: layout.size.h3,
+              fontFamily: 'Montserrat_400Regular',
             }}
           >
             {buttonText}
@@ -56,8 +56,9 @@ export const Button = ({ buttonText, buttonContainerStyle, colors, onPress }: Bu
         <Text
           style={{
             textAlign: 'center',
-            color: '',
+            color: colors.primaryBlack,
             fontSize: layout.size.h3,
+            fontFamily: 'Montserrat_400Regular',
           }}
         >
           {buttonText}
