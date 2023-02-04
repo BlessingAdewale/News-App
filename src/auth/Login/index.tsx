@@ -7,13 +7,41 @@ import { View, Text, SafeAreaView, StyleSheet, TouchableOpacity, Pressable } fro
 import { ScrollView, TextInput } from 'react-native-gesture-handler';
 import Checkbox from 'expo-checkbox';
 import { useLoginHelper } from './useLoginHelper';
+import { Button, SocialButton } from '@components';
+import { colors } from '@constants';
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+
+const auth = getAuth();
 
 export function Login() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [value, setValue] = React.useState({
+    email: '',
+    password: '',
+    error: '',
+  });
   const [isChecked, setChecked] = useState(false);
 
-  const { navigateForgotPassword } = useLoginHelper();
+  const { navigateForgotPassword, navigateFacebook, navigateGoogle, navigateSignUp } =
+    useLoginHelper();
+
+  async function signIn() {
+    if (value.email === '' || value.password === '') {
+      setValue({
+        ...value,
+        error: 'Email and password are mandatory.',
+      });
+      return;
+    }
+
+    try {
+      await signInWithEmailAndPassword(auth, value.email, value.password);
+    } catch (error) {
+      setValue({
+        ...value,
+        error: 'Wrong password or email',
+      });
+    }
+  }
 
   return (
     <SafeAreaView style={[globalStyles.wrapper]}>
@@ -38,8 +66,8 @@ export function Login() {
             keyboardType="email-address"
             textContentType="emailAddress"
             autoFocus={true}
-            value={email}
-            onChangeText={(text) => setEmail(text)}
+            value={value.email}
+            onChangeText={(text) => setValue({ ...value, email: text })}
           />
         </View>
         <View style={styles.passwordView}>
@@ -52,8 +80,8 @@ export function Login() {
             autoCorrect={false}
             secureTextEntry={true}
             textContentType="password"
-            value={password}
-            onChangeText={(text) => setPassword(text)}
+            value={value.password}
+            onChangeText={(text) => setValue({ ...value, password: text })}
           />
         </View>
 
@@ -63,7 +91,7 @@ export function Login() {
               style={styles.checkbox}
               value={isChecked}
               onValueChange={setChecked}
-              color={isChecked ? '#0006b1' : undefined}
+              color={isChecked ? '#0244be' : undefined}
             />
             <Text style={styles.checkBoxText}>Remember Me</Text>
           </View>
@@ -71,6 +99,67 @@ export function Login() {
             <Text style={styles.forgotPassword}>Forgot Password</Text>
           </Pressable>
         </View>
+
+        <Button
+          buttonText="Login"
+          buttonContainerStyle={{
+            paddingVertical: layout.pixelSizeVertical(18),
+            borderRadius: layout.fontPixel(10),
+            marginTop: layout.pixelSizeVertical(50),
+            marginBottom: layout.pixelSizeVertical(29),
+            backgroundColor: '',
+          }}
+          Colors={[colors.deepBlue, colors.primaryBlue]}
+          onPress={signIn}
+        />
+
+        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+          <View style={styles.horizontalRule} />
+          <View>
+            <Text style={styles.orLoginWith}>Or Login with</Text>
+          </View>
+          <View style={styles.horizontalRule} />
+        </View>
+
+        <View style={styles.rowSignUp}>
+          <SocialButton
+            buttonText="Facebook"
+            buttonContainerStyle={{
+              paddingVertical: layout.pixelSizeVertical(18),
+              paddingHorizontal: layout.pixelSizeHorizontal(50),
+              borderRadius: layout.fontPixel(10),
+              marginTop: layout.pixelSizeVertical(30),
+              marginBottom: layout.pixelSizeVertical(29),
+              borderWidth: 1,
+              borderColor: 'grey',
+            }}
+            onPress={navigateFacebook}
+          />
+          <SocialButton
+            buttonText="Google"
+            buttonContainerStyle={{
+              paddingVertical: layout.pixelSizeVertical(18),
+              paddingHorizontal: layout.pixelSizeHorizontal(60),
+              borderRadius: layout.fontPixel(10),
+              marginTop: layout.pixelSizeVertical(30),
+              marginBottom: layout.pixelSizeVertical(29),
+              borderWidth: 1,
+              borderColor: 'grey',
+            }}
+            onPress={navigateGoogle}
+          />
+        </View>
+        {!!value.error && (
+          <View>
+            <Text style={styles.error}>{value.error}</Text>
+          </View>
+        )}
+        <Text style={styles.belowButtonText}>
+          Already have an account?{' '}
+          <Text onPress={navigateSignUp} style={styles.innerText}>
+            Sign Up
+          </Text>
+        </Text>
       </ScrollView>
     </SafeAreaView>
   );
@@ -138,6 +227,40 @@ const styles = StyleSheet.create({
   },
   forgotPassword: {
     fontFamily: 'Montserrat_600SemiBold',
-    color: 'blue',
+    color: '#0244be',
+  },
+  orLoginWith: {
+    paddingHorizontal: layout.pixelSizeHorizontal(25),
+    textAlign: 'center',
+    fontFamily: 'Montserrat_400Regular',
+  },
+  horizontalRule: {
+    flex: 1,
+    height: 1,
+    backgroundColor: 'grey',
+    borderRadius: layout.fontPixel(5),
+  },
+
+  rowSignUp: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  belowButtonText: {
+    color: 'grey',
+    fontFamily: 'Montserrat_400Regular',
+    textAlign: 'center',
+    marginTop: layout.pixelSizeVertical(70),
+  },
+  innerText: {
+    color: colors.deepBlue,
+    fontFamily: 'Montserrat_500Medium',
+  },
+  error: {
+    marginTop: layout.pixelSizeVertical(5),
+    padding: layout.fontPixel(10),
+    color: '#0244be',
+    fontFamily: 'Montserrat_300Light',
+    textAlign: 'center',
   },
 });

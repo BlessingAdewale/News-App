@@ -3,7 +3,7 @@ import React from 'react';
 
 import { registerRootComponent } from 'expo';
 import { StatusBar } from 'expo-status-bar';
-
+import './config/firebase';
 import { NavigationContainer } from './navigation/NavigationContainer';
 import { useFontsHelper } from '@hooks';
 
@@ -16,9 +16,8 @@ function App() {
 
   return (
     <>
-      <StatusBar style="light"/>
+      <StatusBar style="light" />
       <NavigationContainer />
-      
     </>
   );
 }

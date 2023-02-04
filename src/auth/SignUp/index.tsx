@@ -7,15 +7,40 @@ import { Button, SocialButton } from '@components';
 import { colors } from '@constants';
 import { useSignUpHelper } from './useSignUpHelper';
 import { StatusBar } from 'expo-status-bar';
-import { SocialIcon } from 'react-native-elements'
+import { SocialIcon } from 'react-native-elements';
+import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+
+const auth = getAuth();
 
 export function SignUp() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [telephoneNumber, setTelephoneNumber] = useState('');
   const [isChecked, setChecked] = useState(false);
+  const [value, setValue] = useState({
+    email: '',
+    password: '',
+    telephoneNumber: '',
+    error: '',
+  });
 
-  const { navigateLogin } = useSignUpHelper();
+  const { navigateLogin, navigateFacebook, navigateGoogle } = useSignUpHelper();
+  async function signUp() {
+    if (value.email === '' || value.password === '') {
+      setValue({
+        ...value,
+        error: 'Email and password are mandatory.',
+      });
+      return;
+    }
+
+    try {
+      await createUserWithEmailAndPassword(auth, value.email, value.password);
+      navigateLogin;
+    } catch (error) {
+      setValue({
+        ...value,
+        error: 'Invalid email or password',
+      });
+    }
+  }
 
   return (
     <SafeAreaView style={[globalStyles.wrapper]}>
@@ -40,8 +65,8 @@ export function SignUp() {
             keyboardType="email-address"
             textContentType="emailAddress"
             autoFocus={true}
-            value={email}
-            onChangeText={(text) => setEmail(text)}
+            value={value.email}
+            onChangeText={(text) => setValue({ ...value, email: text })}
           />
         </View>
         <View style={styles.numberView}>
@@ -54,8 +79,8 @@ export function SignUp() {
             textBreakStrategy="simple"
             autoComplete="tel"
             textContentType="telephoneNumber"
-            value={telephoneNumber}
-            onChangeText={(text) => setTelephoneNumber(text)}
+            value={value.telephoneNumber}
+            onChangeText={(text) => setValue({ ...value, telephoneNumber: text })}
           />
         </View>
         <View>
@@ -68,8 +93,8 @@ export function SignUp() {
             autoCorrect={false}
             secureTextEntry={true}
             textContentType="password"
-            value={password}
-            onChangeText={(text) => setPassword(text)}
+            value={value.password}
+            onChangeText={(text) => setValue({ ...value, password: text })}
           />
         </View>
 
@@ -78,7 +103,7 @@ export function SignUp() {
             style={styles.checkbox}
             value={isChecked}
             onValueChange={setChecked}
-            color={isChecked ? '#0006b1' : undefined}
+            color={isChecked ? '#0244be' : undefined}
           />
           <Text style={styles.checkBoxText}>I agree to the terms and conditions</Text>
         </View>
@@ -93,7 +118,7 @@ export function SignUp() {
             backgroundColor: '',
           }}
           Colors={[colors.deepBlue, colors.primaryBlue]}
-          onPress={navigateLogin}
+          onPress={signUp}
         />
 
         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
@@ -116,7 +141,7 @@ export function SignUp() {
               borderWidth: 1,
               borderColor: 'grey',
             }}
-            onPress={navigateLogin}
+            onPress={navigateFacebook}
           />
           <SocialButton
             buttonText="Google"
@@ -129,9 +154,20 @@ export function SignUp() {
               borderWidth: 1,
               borderColor: 'grey',
             }}
-            onPress={navigateLogin}
+            onPress={navigateGoogle}
           />
         </View>
+        {!!value.error && (
+          <View>
+            <Text style={styles.error}>{value.error}</Text>
+          </View>
+        )}
+        <Text style={styles.belowButtonText}>
+          Already have an account?{' '}
+          <Text onPress={navigateLogin} style={styles.innerText}>
+            Login
+          </Text>
+        </Text>
       </ScrollView>
     </SafeAreaView>
   );
@@ -214,5 +250,22 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
+  },
+  belowButtonText: {
+    color: 'grey',
+    fontFamily: 'Montserrat_400Regular',
+    textAlign: 'center',
+    marginTop: layout.pixelSizeVertical(10),
+  },
+  innerText: {
+    color: colors.deepBlue,
+    fontFamily: 'Montserrat_500Medium',
+  },
+  error: {
+    marginTop: layout.pixelSizeVertical(5),
+    padding: layout.fontPixel(10),
+    color: '#0244be',
+    fontFamily: 'Montserrat_300Light',
+    textAlign: 'center',
   },
 });

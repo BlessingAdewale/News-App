@@ -45,6 +45,8 @@ export type AuthStackParamList = {
   Login: undefined;
   SignUp: undefined;
   ForgotPassword: undefined;
+  GoogleSignIn: undefined;
+  FacebookSignIn: undefined;
 };
 
 export type RootStackParamList = {
@@ -58,6 +60,15 @@ export type MainBottomTabParamList = {
   Profile: undefined;
 };
 
+export type FacebookSignInScreenNavigationProp = StackNavigationProp<
+  AuthStackParamList,
+  'FacebookSignIn'
+>;
+
+export type GoogleSignInScreenNavigationProp = StackNavigationProp<
+  AuthStackParamList,
+  'GoogleSignIn'
+>;
 export type ForgotPasswordScreenNavigationProp = StackNavigationProp<
   AuthStackParamList,
   'ForgotPassword'

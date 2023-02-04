@@ -4,17 +4,26 @@ import { LoginScreenNavigationProp } from 'navigation/types';
 export const useLoginHelper = () => {
   const navigation = useNavigation<LoginScreenNavigationProp>();
 
-  const navigateHomeTab = () => {
-    navigation.navigate('HomeTab');
-  };
-
   const navigateForgotPassword = () => {
     navigation.navigate('ForgotPassword');
   };
 
+  const navigateFacebook = () => {
+    navigation.navigate('FacebookSignIn');
+  };
+
+  const navigateGoogle = () => {
+    navigation.navigate('GoogleSignIn');
+  };
+
+  const navigateSignUp = () => {
+    navigation.navigate('SignUp');
+  };
+
   return {
     navigateForgotPassword,
-    navigateHomeTab,
-  
+    navigateFacebook,
+    navigateGoogle,
+    navigateSignUp,
   };
 };
