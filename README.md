@@ -1,6 +1,6 @@
 ![image](https://user-images.githubusercontent.com/75122966/216776851-197244bc-f8d9-43bc-8a19-4e9c17bb39f1.png)
 
-# React Native Template Project Based on a Dribbble Design.
+# React Native Project Based on a Dribbble Design.
 
 [![Moove It](https://circleci.com/gh/moove-it/react-native-template.svg?style=svg)](https://app.circleci.com/pipelines/github/moove-it/react-native-template?branch=master)
 
