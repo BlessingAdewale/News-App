@@ -7,6 +7,9 @@ import './config/firebase';
 import { NavigationContainer } from './navigation/NavigationContainer';
 import { useFontsHelper } from '@hooks';
 
+import { Provider } from 'react-redux';
+import { store } from '@redux';
+
 function App() {
   const { appIsReady } = useFontsHelper();
 
@@ -16,8 +19,10 @@ function App() {
 
   return (
     <>
-      <StatusBar style="light" />
-      <NavigationContainer />
+      <Provider store={store}>
+        <StatusBar style="light" />
+        <NavigationContainer />
+      </Provider>
     </>
   );
 }

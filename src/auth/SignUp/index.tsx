@@ -9,8 +9,11 @@ import { useSignUpHelper } from './useSignUpHelper';
 import { StatusBar } from 'expo-status-bar';
 import { SocialIcon } from 'react-native-elements';
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+import { useDispatch } from 'react-redux';
+import { login } from '@redux';
 
 const auth = getAuth();
+const dispatch = useDispatch();
 
 export function SignUp() {
   const [isChecked, setChecked] = useState(false);
@@ -22,6 +25,7 @@ export function SignUp() {
   });
 
   const { navigateLogin, navigateFacebook, navigateGoogle } = useSignUpHelper();
+
   async function signUp() {
     if (value.email === '' || value.password === '') {
       setValue({
@@ -32,9 +36,19 @@ export function SignUp() {
     }
 
     try {
+      // Create a new user with Firebase
       await createUserWithEmailAndPassword(auth, value.email, value.password);
-      navigateLogin;
+      // Dispatch the user information for persistence in the redux state
+      dispatch(
+        login({
+          email: auth.currentUser?.email,
+          uid: auth.currentUser?.uid,
+          displayName: auth.currentUser?.displayName,
+          photoUrl: auth.currentUser?.photoURL,
+        }),
+      );
     } catch (error) {
+      // display the error if any
       setValue({
         ...value,
         error: 'Invalid email or password',

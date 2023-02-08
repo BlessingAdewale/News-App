@@ -10,8 +10,11 @@ import { useLoginHelper } from './useLoginHelper';
 import { Button, SocialButton } from '@components';
 import { colors } from '@constants';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import { useDispatch } from 'react-redux';
+import { login } from '@redux';
 
 const auth = getAuth();
+const dispatch = useDispatch();
 
 export function Login() {
   const [value, setValue] = React.useState({
@@ -34,9 +37,23 @@ export function Login() {
     }
 
     try {
+      // Sign in an existing user with Firebase
       await signInWithEmailAndPassword(auth, value.email, value.password);
+
+      // returns  an auth object after a successful authentication
+      // auth.currentuser? contains all our user details
+      // store the user's information in the redux state
+      dispatch(
+        login({
+          email: auth.currentUser?.email,
+          uid: auth.currentUser?.uid,
+          displayName: auth.currentUser?.displayName,
+          photoUrl: auth.currentUser?.photoURL,
+        }),
+      );
     } catch (error) {
       setValue({
+        // display the error if any
         ...value,
         error: 'Wrong password or email',
       });

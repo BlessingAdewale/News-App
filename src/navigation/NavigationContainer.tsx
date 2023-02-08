@@ -11,5 +11,6 @@ export const NavigationContainer = () => {
     return user ? <RootStackNavigator /> : <AuthStackNavigator />;
   };
 
+
   return <BaseNavigationContainer>{renderContent()}</BaseNavigationContainer>;
 };

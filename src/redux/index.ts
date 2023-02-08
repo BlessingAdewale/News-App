@@ -1,3 +1,2 @@
-export * from './Actions';
-export * from './Reducers';
-export * from './Store';
+export * from './store';
+export * from './slices/userSlice'
