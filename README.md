@@ -1,10 +1,10 @@
 ![image](https://user-images.githubusercontent.com/75122966/216776851-197244bc-f8d9-43bc-8a19-4e9c17bb39f1.png)
 
-# React Native Template
+# React Native Template Project Based on a Dribbble Design.
 
 [![Moove It](https://circleci.com/gh/moove-it/react-native-template.svg?style=svg)](https://app.circleci.com/pipelines/github/moove-it/react-native-template?branch=master)
 
-This project aims to be a strong foundation for react-native applications. It provides a clear and organized structure, core dependencies, and boilerplate to jumpstart development.
+This project aims to be a strong foundation for react-native news applications. It provides a clear and organized structure, core dependencies, and boilerplate to jumpstart news app development and production.
 
 ## Prerequisites
 
@@ -21,8 +21,6 @@ This project aims to be a strong foundation for react-native applications. It pr
 - [prop-types](https://github.com/facebook/prop-types) to type-check our components exposed properties.
 - [react-native-config](https://github.com/luggit/react-native-config) to manage envionments.
 - [react-navigation](https://reactnavigation.org/) navigation library.
-- [react-native-localization](https://github.com/stefalda/ReactNativeLocalization) for string localization.
-- [react-native-mmkv-storage](https://github.com/ammarahm-ed/react-native-mmkv-storage#readme) as storage solution.
 - [redux](https://redux.js.org/) for state management.
 - [redux-persist](https://github.com/rt2zz/redux-persist) as persistance layer.
 - [redux-thunk](https://github.com/gaearon/redux-thunk) to dispatch asynchronous actions.
