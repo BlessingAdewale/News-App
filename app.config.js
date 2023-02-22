@@ -27,6 +27,8 @@ export default {
         foregroundImage: './src/assets/images/adaptive-icon.png',
         backgroundColor: '#FFFFFF',
       },
+
+      googleServicesFile: './google-services.json',
     },
     web: {
       favicon: './assets/favicon.png',
@@ -41,6 +43,9 @@ export default {
       firebaseStorageBucket: process.env.FIREBASE_STORAGE_BUCKET,
       firebaseMessagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
       firebaseAppId: process.env.FIREBASE_APP_ID,
+      eas: {
+        projectId: '53d4a0c4-aa8b-4ea7-a6b0-df7b02b39575',
+      },
     },
   },
 };

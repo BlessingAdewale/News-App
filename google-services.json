@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "92274395032",
+    "project_id": "my-awesome-project-bd5fc",
+    "storage_bucket": "my-awesome-project-bd5fc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:92274395032:android:86e113a0b3948110becded",
+        "android_client_info": {
+          "package_name": "com.blessing.experiment"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "92274395032-dh1mr5jccj5ld075jo4smtd3ek76fjp2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdx-buXB-ew8rF38NL8rRXCaWxPXAtFnU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "92274395032-4lbhrtglf85osp1svr4gp58t1tlke3u5.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "92274395032-5edn2b881vop05tiqi8sourkqnlprgcp.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "host.exp.exponent"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
